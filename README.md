@@ -6,11 +6,11 @@ In the Jupyter Notebook called `mission_to_mars.ipynb`, BeautifulSoup, Pandas, a
 
 ### NASA Mars News
 
-* Scrape the [Mars News Site](https://redplanetscience.com/) and collect the latest News Title and Paragraph Text.
+* This [Mars News Site](https://redplanetscience.com/) was scraped to collect the latest News Title and Paragraph Text.
 
 ### JPL Mars Space Images - Featured Image
 
-* Scrape the featured image from the [Featured Space Image site](https://spaceimages-mars.com).
+* The [Featured Space Image site](https://spaceimages-mars.com) was used to scrape the page's featured image.
 
 ### Mars Facts
 
@@ -19,56 +19,17 @@ In the Jupyter Notebook called `mission_to_mars.ipynb`, BeautifulSoup, Pandas, a
 
 ### Mars Hemispheres
 
-* Visit the astrogeology site [here](https://marshemispheres.com/) to obtain high resolution images for each of Mar's hemispheres.
-
-* You will need to click each of the links to the hemispheres in order to find the image url to the full resolution image.
-
-* Save both the image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name. Use a Python dictionary to store the data using the keys `img_url` and `title`.
-
-* Append the dictionary with the image url string and the hemisphere title to a list. This list will contain one dictionary for each hemisphere.
-
-```python
-# Example:
-hemisphere_image_urls = [
-    {"title": "Valles Marineris Hemisphere", "img_url": "..."},
-    {"title": "Cerberus Hemisphere", "img_url": "..."},
-    {"title": "Schiaparelli Hemisphere", "img_url": "..."},
-    {"title": "Syrtis Major Hemisphere", "img_url": "..."},
-]
-```
+* Images of the Mars hemispheres were scraped from [this astrogeology site](https://marshemispheres.com/) to obtain URL for each image of Mars' hemispheres.
 
 - - -
 
 ## Step 2 - MongoDB and Flask Application
 
-Use MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
+The `app.py` file is a flask app with a local connection to MongoDB. A styled template is used to render the data collected in Step 1.
 
-* The Jupyter notebook above was converted into a Python script called `scrape_mars.py` with a function called `scrape` that will execute all of the scraping code from the websites listed above and return one dictionary containing all of the scraped data.
-
-* Next, create a route called `/scrape` that will import your `scrape_mars.py` script and call your `scrape` function.
-
-  * Store the return value in Mongo as a Python dictionary.
-
-* Create a root route `/` that will query your Mongo database and pass the mars data into an HTML template to display the data.
-
-* Create a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements. Use the following as a guide for what the final product should look like, but feel free to create your own design.
-
-![final_app_part1.png](Images/final_app.png)
+* The Jupyter notebook above was converted into a Python script called `scrape_mars.py` with a function called `scrape` that executes our scrape code from the websites where the data changes (the news title/text and the featured image). This scraped data is returned in one dictionary and upserted into MongoDB, then rendered on the page.
 
 - - -
 
-## Step 3 - Submission
-1. The Jupyter Notebook containing the scraping code used.
-2. Screenshots of your final application.
-3. Submit the link to your new repository to BootCampSpot.
+* A screenshot of the final application can be seen in `final_app.jpg`.
 
-## Hints
-
-* Use Pymongo for CRUD applications for your database. For this homework, you can simply overwrite the existing document each time the `/scrape` url is visited and new data is obtained.
-
-* Use Bootstrap to structure your HTML template.
-
-## Rubric
-[Unit 12 Rubric - Web Scraping Homework - Mission to Mars](https://docs.google.com/document/d/1paGEIFS5yp2VQu6G8F45B4uj1t1t29zL73KEQrD0xpo/edit?usp=sharing)
-
-- - -
