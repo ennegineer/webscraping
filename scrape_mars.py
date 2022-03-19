@@ -7,7 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 def scrape_info():
     # Set up Splinter
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
 
     # Scrape the Mars News Site and collect the latest News Title and Paragraph Text.
     url = "https://redplanetscience.com/"
