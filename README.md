@@ -31,5 +31,7 @@ The `app.py` file is a flask app with a local connection to MongoDB. A styled te
 
 - - -
 
-* A screenshot of the final application can be seen in `final_app.jpg`.
+* A screenshot of the final application:
+
+![](final_app.JPG)
 
